@@ -80,6 +80,8 @@ class DockerPlugin implements Plugin<Project> {
             registry = ''
             useApi = Boolean.FALSE
             hostUrl = ''
+            certPath = ''
+            apiVersion = ''
             apiUsername = ''
             apiEmail = ''
             apiPassword = ''
@@ -111,6 +113,8 @@ class DockerPlugin implements Plugin<Project> {
             registry = { extension.registry }
             useApi = { extension.useApi }
             hostUrl = { extension.hostUrl }
+            certPath = { extension.certPath }
+            apiVersion = { extension.apiVersion }
             apiUsername = { extension.apiUsername }
             apiPassword = { extension.apiPassword }
             apiEmail = { extension.apiEmail }
@@ -125,6 +129,8 @@ class DockerPlugin implements Plugin<Project> {
             registry = { extension.registry }
             useApi = { extension.useApi }
             hostUrl = { extension.hostUrl }
+            certPath = { extension.certPath }
+            apiVersion = { extension.apiVersion }
             apiUsername = { extension.apiUsername }
             apiPassword = { extension.apiPassword }
             apiEmail = { extension.apiEmail }

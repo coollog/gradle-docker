@@ -140,6 +140,8 @@ docker {
 Use of the remote API requires that the Docker server be configured to listen over HTTP and that it have support for version 1.11 of the API (connecting over Unix Domain sockets is not supported yet).  The following configuration options are available:
 
 * `hostUrl` - set the URL used to contact the Docker server.  Defaults to `http://localhost:2375`
+* `certPath` - set the path to the authentication keys.  Defaults to `nil` which means no certificate is provided.
+* `apiVersion` - set version of the Docker API.  Defaults to `nil` which means DOCKER_API_VERSION is used.
 * `apiUsername` - set the username used to authenticate the user with the Docker server.  Defaults to `nil` which means no authentication is performed.
 * `apiPassword` - set the password used to authenticate the user with the Docker server.
 * `apiEmail` - set the user's email used to authenticate the user with the Docker server.
@@ -150,6 +152,8 @@ For example:
 docker {
     useApi true
     hostUrl 'http://myserver:4243'
+    certPath '/home/me/.minikube/certs'
+    apiVersion '1.23'
     apiUsername 'user'
     apiPassword 'password'
     apiEmail 'me@mycompany.com'

@@ -51,6 +51,12 @@ abstract class DockerTaskBase extends DefaultTask {
     String apiUsername
     String apiPassword
     String apiEmail
+
+    // Docker remote certificate
+    String certPath
+
+    // Docker remote API version
+    String apiVersion
     
     DockerTaskBase() {
         applicationName = project.name
@@ -100,7 +106,9 @@ abstract class DockerTaskBase extends DefaultTask {
                     getHostUrl(),
                     getApiUsername(),
                     getApiPassword(),
-                    getApiEmail())
+                    getApiEmail(),
+                    getApiVersion(),
+                    getCertPath())
         } else {
             logger.info("Using the native docker binary.")
             client = new NativeDockerClient(getDockerBinary())

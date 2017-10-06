@@ -28,6 +28,8 @@ class DockerPluginExtension {
 
     // docker host url & credentials
     String hostUrl
+    String certPath
+    String apiVersion
     String apiUsername
     String apiEmail
     String apiPassword

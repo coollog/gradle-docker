@@ -44,13 +44,19 @@ public class JavaDockerClient implements DockerClient {
         this.dockerClient = dockerClient;
     }
 
-    public static JavaDockerClient create(String url, String user, String password, String email) {
+    public static JavaDockerClient create(String url, String user, String password, String email, String apiVersion, String certPath) {
         final DockerClientConfig.DockerClientConfigBuilder configBuilder = DockerClientConfig.createDefaultConfigBuilder();
         if (StringUtils.isEmpty(url)) {
             log.info("Connecting to localhost");
         } else {
             log.info("Connecting to {}", url);
             configBuilder.withUri(url);
+        }
+        if (StringUtils.isNotEmpty(apiVersion)) {
+            configBuilder.withVersion(apiVersion);
+        }
+        if (StringUtils.isNotEmpty(certPath)) {
+            configBuilder.withDockerCertPath(certPath);
         }
         if (StringUtils.isNotEmpty(user)) {
             configBuilder.withUsername(user).withPassword(password).withEmail(email);
